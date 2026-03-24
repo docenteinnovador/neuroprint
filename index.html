@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEURO PRINT</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">NEURO PRINT</div>
+  <ul class="nav-links">
+    
+    <li>
+  <a href="https://wa.me/593983036256" target="_blank" rel="noopener noreferrer">
+    Contactanos
+  </a>
+</li>
+  </ul>
+  
+
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+ <h1>Diseños con elegancia<br><em>creado en impresión 3D</em></h1>
+  <p class="hero-sub">Cada pieza es única. Diseñadas con precisión milimétrica, impresas bajo pedido.</p>
+  <div class="hero-cta">
+<a href="products.html" class="btn-primary">Explorar diseños</a>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+  <span><b>Materiales de alta gama</b> · Selección premium para acabados superiores</span>
+  <span><b>Producción bajo pedido</b> · Cada pieza creada especialmente para ti</span>
+  <span><b>Detalle de precisión</b> · Superficies finas y definidas al máximo nivel</span>
+  <span><b>Acabado artístico</b> · Toque final cuidado pieza por pieza</span>
+  <span><b>Diseño exclusivo</b> · Ediciones únicas y limitadas</span>
+
+  <span><b>Materiales de alta gama</b> · Selección premium para acabados superiores</span>
+  <span><b>Producción bajo pedido</b> · Cada pieza creada especialmente para ti</span>
+  <span><b>Detalle de precisión</b> · Superficies finas y definidas al máximo nivel</span>
+  <span><b>Acabado artístico</b> · Toque final cuidado pieza por pieza</span>
+  <span><b>Diseño exclusivo</b> · Ediciones únicas y limitadas</span>
+</div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="productos">
+
+
+<!-- FEATURES -->
+<div class="feature-strip">
+  <div class="feature-item">
+    <span class="feature-icon">◈</span>
+    <p class="feature-title">Precisión impecable</p>
+    <p class="feature-text">
+      Detalles milimétricos y acabados suaves que elevan cada pieza a nivel de colección.
+    </p>
+  </div>
+
+  <div class="feature-item">
+    <span class="feature-icon">◇</span>
+    <p class="feature-title">Diseño exclusivo</p>
+    <p class="feature-text">
+      Creaciones únicas, desarrolladas desde cero para que cada figura sea verdaderamente irrepetible.
+    </p>
+  </div>
+
+  <div class="feature-item">
+    <span class="feature-icon">○</span>
+    <p class="feature-title">Personalización total</p>
+    <p class="feature-text">
+      Elige colores, tamaños y acabados. Convertimos tu idea en una pieza hecha a tu medida.
+    </p>
+  </div>
+</div>
+
+<!-- TESTIMONIAL -->
+<div class="testimonial-section">
+  <p class="testimonial-quote">
+    "Más que un producto, es una obra de arte. El nivel de detalle y la calidad optimos para adornos personalizados."
+  </p>
+  
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="newsletter-text">
+    <h3>Lanzamientos exclusivos<br>cada semana</h3>
+    <p>
+      Descubre nuevas piezas antes que nadie y accede a ediciones limitadas.
+    </p>
+  </div>
+
+  
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">N.PRINT</div>
+  <ul class="footer-links">
+    <li>
+  <a href="https://www.instagram.com/neuroprint26/" target="_blank" rel="noopener noreferrer">
+    Síguenos en Instagram
+  </a>
+</li>
+
+  </ul>
+  <p class="footer-copy">© 2026 Neuro Print Studio</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal" id="modalContent">
+    <div class="modal-img" id="modalImg"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">×</button>
+      <p class="modal-cat" id="modalCat"></p>
+      <h2 class="modal-name" id="modalName"></h2>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-specs" id="modalSpecs"></div>
+      <p class="modal-price" id="modalPrice"></p>
+      <button class="modal-add" onclick="addToCart()">Agregar al carrito</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

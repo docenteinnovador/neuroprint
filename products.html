@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colección - NEURO PRINT</title>
+<link rel="stylesheet" href="styless.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">NEURO PRINT</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div style="text-align: center; padding: 8rem 5vw 3rem;">
+  <p class="section-label">Colección completa</p>
+  <h1 style="font-size: 3rem; margin-top: 0.5rem;">Piezas únicas</h1>
+
+  <p style="font-size: 1rem; color: var(--gray-500); margin-top: 1rem;">
+    Diseños organizados por categorías
+  </p>
+</div>
+
+<!-- MENU CATEGORÍAS -->
+<div class="category-menu">
+  <button class="cat-btn active" data-category="all">Todo</button>
+  <button class="cat-btn" data-category="billeteras">Billeteras</button>
+  <button class="cat-btn" data-category="figuras">Figuras</button>
+  <button class="cat-btn" data-category="llaveros">Llaveros</button>
+  <button class="cat-btn" data-category="decorativos">Decorativos</button>
+</div>
+
+<!-- PRODUCTOS -->
+<main class="products-grid">
+
+  <!-- BILLETERA -->
+  <div class="product-card" data-category="billeteras">
+    <div class="product-visual">
+      <img src="/billetera minimalista.png" alt="Billetera minimalista">
+    </div>
+    <div class="product-name">Billetera minimalista</div>
+    <div class="product-price">$18</div>
+  </div>
+
+   <div class="product-card" data-category="billeteras">
+    <div class="product-visual">
+      <img src="/billetera texturizada.jpg" alt="Billetera minimalista">
+    </div>
+    <div class="product-name">Billetera texturizada</div>
+    <div class="product-price">$12</div>
+  </div>
+
+  <div class="product-card" data-category="billeteras">
+    <div class="product-visual">
+      <img src="/billetera simple.jpg" alt="Billetera minimalista">
+    </div>
+    <div class="product-name">Billetera simple</div>
+    <div class="product-price">$15</div>
+  </div>
+
+  <!-- FIGURA -->
+  <div class="product-card" data-category="figuras">
+  <div class="product-visual">
+    <img src="/figura3d.jpg">
+  </div>
+  <div class="product-name">Figura familiar</div>
+  <div class="product-price">$18</div>
+  <div class="product-size">Tamaño: 8cm de alto</div>
+</div>
+
+   <div class="product-card" data-category="figuras">
+    <div class="product-visual">
+      <img src="/jugador.png">
+    </div>
+    <div class="product-name">Figura personalizada</div>
+    <div class="product-price">$7</div>
+    <div class="product-size">Tamaño: 5cm de alto</div>
+  </div>
+
+
+  <!-- LLAVERO -->
+  <div class="product-card" data-category="llaveros">
+    <div class="product-visual">
+      <img src="llavero.jpg">
+    </div>
+    <div class="product-name">Llavero personalizado</div>
+    <div class="product-price">$7</div>
+    <div class="product-size">Tamaño: 5cm de largo</div>
+  </div>
+
+  <div class="product-card" data-category="decorativos">
+  <div class="product-visual">
+    <img src="/jesus.jpg" alt="Figura Jesús">
+  </div>
+  <div class="product-name">Jesús de pared</div>
+  <div class="product-price">$15</div>
+  <div class="product-size">Tamaño: 19cm de alto</div>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">NEURO PRINT</div>
+  <p class="footer-copy">© 2025 NEURO PRINT</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
