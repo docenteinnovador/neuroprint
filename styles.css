@@ -392,6 +392,65 @@ nav {
   color: var(--white);
 }
 
+/* Colores disponibles */
+.colors-btn {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--gray-500);
+  border: 1px solid var(--gray-300);
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-left: auto;
+}
+
+.colors-btn:hover {
+  background: var(--gray-100);
+  border-color: var(--black);
+  color: var(--black);
+}
+
+.colors-list {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 4px;
+  padding: 0.5rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 0.5rem;
+}
+
+.colors-list.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.color-option {
+  display: inline-block;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--gray-100);
+  color: var(--gray-700);
+  padding: 0.3rem 0.6rem;
+  margin: 0.1rem;
+  border-radius: 3px;
+}
+
+
 /* ─── FEATURE STRIP ─── */
 .feature-strip {
   display: grid;

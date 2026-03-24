@@ -1,12 +1,13 @@
-# TODO: NEURO PRINT - Separate Landing & Products Pages
+# TODO: Botones Colores Disponibles - products.html
 
-## Plan Steps
-- [x] Step 1: Edit index.html - Remove #productos section, update "Ver colección" to products.html, nav Colección to products.html
-- [ ] Step 2: Update app.js - Add new categories/products data, renderCategoryProducts() for multi-category
-- [x] Step 3: Create products.html - New page with category tabs/sections, grids, reuse styles/JS
-- [x] Step 2: Update app.js - Add new categories/products data, renderCategoryProducts() for multi-category
+**Estado**: Plan aprobado ("DALE")
 
-- [ ] Step 4: Test navigation, filters, modal/cart
-- [ ] Step 5: Complete
+## Pasos del Plan (todos iguales colores):
+- [x] 1. products.html - Agregar botón "Colores disponibles" + data-colors en cada .product-card
+- [x] 2. app.js - Función showColors() toggle lista colores
+- [ ] 3. styles.css - Estilos botón + popup colores
 
-Current: Starting Step 1
+- [ ] 3. styles.css - Estilos botón + popup colores
+- [ ] 4. Test `start products.html`
+
+**Progreso**: Iniciando paso 1

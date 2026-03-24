@@ -22,3 +22,33 @@ buttons.forEach(btn => {
 
   });
 });
+
+// Colores disponibles - FIX toggle
+function showColors(btn) {
+  const card = btn.closest('.product-card');
+  const colorsList = card.querySelector('.colors-list');
+  const colorsData = card.dataset.colors.split(',');
+  
+  // Close others
+  document.querySelectorAll('.colors-list.show').forEach(list => {
+    if (list !== colorsList) list.classList.remove('show');
+  });
+  
+  // Toggle
+  colorsList.classList.toggle('show');
+  
+  if (colorsList.classList.contains('show')) {
+    colorsList.innerHTML = colorsData.map(color => `<span class="color-option">${color.trim()}</span>`).join(' ');
+  }
+}
+
+
+// Hide outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.product-card')) {
+    document.querySelectorAll('.colors-list.show').forEach(list => list.classList.remove('show'));
+  }
+});
+
+
+
