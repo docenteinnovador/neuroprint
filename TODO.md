@@ -1,13 +1,10 @@
-# TODO: Botones Colores Disponibles - products.html
+# Task: 3-Image Sliders per Product Category in products.html
 
-**Estado**: Plan aprobado ("DALE")
+## Steps:
+- [x] 1. Update styles.css with slider CSS (horizontal scroll-snap carousel)
+- [x] 2. Update app.js with swipe/drag JS logic
+- [x] 3. Update products.html: Replace each .product-visual img with 3-image slider structure
+- [ ] 4. Test sliders on touch/mouse, category filter
+- [ ] 5. Complete task
 
-## Pasos del Plan (todos iguales colores):
-- [x] 1. products.html - Agregar botón "Colores disponibles" + data-colors en cada .product-card
-- [x] 2. app.js - Función showColors() toggle lista colores
-- [ ] 3. styles.css - Estilos botón + popup colores
-
-- [ ] 3. styles.css - Estilos botón + popup colores
-- [ ] 4. Test `start products.html`
-
-**Progreso**: Iniciando paso 1
+Current: Steps 1-3 complete. Sliders implemented for all products with swipe support. Design preserved (square visuals, grid layout, hover effects). Open products.html to test swiping between 3 images per product.

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Colección - NEURO PRINT</title>
-<link rel="stylesheet" href="styless.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -40,15 +40,28 @@
   <button class="cat-btn" data-category="figuras">Figuras</button>
   <button class="cat-btn" data-category="llaveros">Llaveros</button>
   <button class="cat-btn" data-category="decorativos">Decorativos</button>
+  <button class="cat-btn" data-category="mini">Mini Juegos</button>
+  <button class="cat-btn" data-category="salud">Salud</button>
+  <button class="cat-btn" data-category="soportes">Soportes</button>
 </div>
 
 <!-- PRODUCTOS -->
 <main class="products-grid">
 
+  <!-- MINI JUEGOS -->
+
+
   <!-- BILLETERA -->
   <div class="product-card" data-category="billeteras">
     <div class="product-visual">
-      <img src="billetera minimalista.png" alt="Billetera minimalista">
+      <div class="image-slider">
+        <div class="image-track">
+          <div class="image-slide"><img src="billetera minimalista.png" alt="Billetera minimalista 3"></div>
+          <div class="image-slide"><img src="modelo1.png" alt="Billetera minimalista 1"></div>
+          <div class="image-slide"><img src="per2.png" alt="Billetera minimalista 2"></div>
+          
+        </div>
+      </div>
     </div>
     <div class="product-name">Billetera minimalista</div>
 
@@ -62,7 +75,13 @@
 
 
     <div class="product-visual">
-      <img src="billetera.jpg" alt="Billetera minimalista">
+      <div class="image-slider">
+        <div class="image-track">
+          <div class="image-slide"><img src="billetera2.png" alt="Billetera texturizada 1"></div>
+          <div class="image-slide"><img src="modelo2.png" alt="Billetera texturizada 2"></div>
+          
+        </div>
+      </div>
     </div>
     <div class="product-name">Billetera texturizada</div>
     <div class="product-price">$12</div>
@@ -71,7 +90,12 @@
 
   <div class="product-card" data-category="billeteras">
     <div class="product-visual">
-      <img src="billetera simple.jpg" alt="Billetera minimalista">
+      <div class="image-slider">
+        <div class="image-track">
+          <div class="image-slide"><img src="billetera simple.jpg" alt="Billetera simple 1"></div>
+          <div class="image-slide"><img src="modelo3.png" alt="Billetera simple 2"></div>
+        </div>
+      </div>
     </div>
     <div class="product-name">Billetera simple</div>
     <div class="product-price">$15</div>
@@ -81,8 +105,14 @@
   <!-- FIGURA -->
   <div class="product-card" data-category="figuras">
   <div class="product-visual">
-    <img src="figura3d.jpg">
-  </div>
+      <div class="image-slider">
+        <div class="image-track">
+          <div class="image-slide"><img src="figura3d.jpg" alt="Figura familiar 1"></div>
+          <div class="image-slide"><img src="figura1.jpg" alt="Figura familiar 2"></div>
+          
+        </div>
+      </div>
+    </div>
   <div class="product-name">Figura familiar</div>
   <div class="product-price">$18</div>
   <div class="product-size">Tamaño: 8cm de alto</div>
@@ -98,8 +128,14 @@
 
    <div class="product-card" data-category="figuras">
   <div class="product-visual">
-    <img src="jugador.png">
-  </div>
+      <div class="image-slider">
+        <div class="image-track">
+          <div class="image-slide"><img src="jugador.png" alt="Figura personalizada 1"></div>
+          <div class="image-slide"><img src="nba2.png" alt="Figura personalizada 2"></div>
+          
+        </div>
+      </div>
+    </div>
   <div class="product-name">Figura personalizada</div>
   <div class="product-price">$7</div>
   <div class="product-size">Tamaño: 5cm de alto</div>
@@ -116,8 +152,14 @@
   <!-- LLAVERO -->
  <div class="product-card" data-category="llaveros">
   <div class="product-visual">
-    <img src="llavero.jpg">
-  </div>
+      <div class="image-slider">
+        <div class="image-track">
+          <div class="image-slide"><img src="llaverofondo.jpg" alt="Llavero 1"></div>
+          <div class="image-slide"><img src="llaverod.png" alt="Llavero 2"></div>
+          
+        </div>
+      </div>
+    </div>
   <div class="product-name">Llavero personalizado</div>
   <div class="product-price">$7</div>
   <div class="product-size">Tamaño: 5cm de largo</div>
@@ -133,13 +175,73 @@
 
   <div class="product-card" data-category="decorativos">
   <div class="product-visual">
-    <img src="jesus.jpg" alt="Figura Jesús">
-  </div>
-  <div class="product-name">Jesús de pared</div>
+      <div class="image-slider">
+        <div class="image-track">
+          <div class="image-slide"><img src="jesus.jpg" alt="Jesús de pared 1"></div>
+          <div class="image-slide"><img src="bar.png" alt="Jesús de pared 2"></div>
+          
+        </div>
+      </div>
+    </div>
+  <div class="product-name">Tipografía de pared</div>
   <div class="product-price">$15</div>
   <div class="product-size">Tamaño: 19cm de alto</div>
   <div class="product-color">negro, plomo, blanco</div>
 </div>
+<div class="product-card" data-category="mini">
+  <div class="product-visual">
+      <div class="image-slider">
+        <div class="image-track">
+          <div class="image-slide"><img src="ajedrez.png" alt="Mini ajedrez 1"></div>
+          
+        </div>
+      </div>
+    </div>
+  <div class="product-name">Mini ajedrez de bolsillo</div>
+  <div class="product-price">$17</div>
+  <div class="product-size">Tamaño: 8cm de largo</div>
+  <div class="product-color">color personalizado</div>
+</div>
+<div class="product-card" data-category="salud">
+  <div class="product-visual">
+      <div class="image-slider">
+        <div class="image-track">
+          <div class="image-slide"><img src="rodillo.png" alt="Mini ajedrez 1"></div>
+        </div>
+      </div>
+    </div>
+  <div class="product-name">Rodillo para el pie</div>
+  <div class="product-price">$10</div>
+  
+  <div class="product-color">color personalizado</div>
+</div>
+<div class="product-card" data-category="soportes">
+  <div class="product-visual">
+      <div class="image-slider">
+        <div class="image-track">
+          <div class="image-slide"><img src="soporte.png" alt="Mini ajedrez 1"></div>
+        </div>
+      </div>
+    </div>
+  <div class="product-name">Soporte celular</div>
+  <div class="product-price">$12</div>
+  
+  <div class="product-color">blanco, negro, plomo </div>
+</div>
+<div class="product-card" data-category="soportes">
+  <div class="product-visual">
+      <div class="image-slider">
+        <div class="image-track">
+          <div class="image-slide"><img src="soporte computadora.png" alt="Mini ajedrez 1"></div>
+        </div>
+      </div>
+    </div>
+  <div class="product-name">Soporte laptop</div>
+  <div class="product-price">$18</div>
+  
+  <div class="product-color">blanco, negro, plomo </div>
+</div>
+
 
 </main>
 

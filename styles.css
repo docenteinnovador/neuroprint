@@ -278,6 +278,40 @@ nav {
 }
 
 /* ─── PRODUCT GRID ─── */
+/* ─── CATEGORY MENU (FILTRO PRINCIPAL) ─── */
+.category-menu {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 2rem 5vw;
+  border-bottom: 1px solid var(--gray-100);
+  flex-wrap: wrap;
+}
+
+.cat-btn {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.45rem 1.4rem;
+  border: 1px solid var(--gray-300);
+  background: transparent;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.cat-btn:hover {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+.cat-btn.active {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -285,6 +319,7 @@ nav {
   padding: 0 5vw;
   border-bottom: 1px solid var(--gray-100);
 }
+
 
 .product-card {
   border-right: 1px solid var(--gray-100);
@@ -304,22 +339,58 @@ nav {
   aspect-ratio: 1;
   background: var(--gray-100);
   margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.image-slider::-webkit-scrollbar {
+  display: none;
+}
+
+
+.image-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.image-track {
+  display: flex;
+  height: 100%;
+  gap: 0;
+  transition: transform 0.3s ease;
+}
+
+.image-slide {
+  flex: 0 0 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  position: relative;
+  scroll-snap-align: center;
 }
 
-.product-visual svg {
-  width: 60%;
-  height: 60%;
+.image-slide img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
   transition: transform 0.4s ease;
 }
 
-.product-card:hover .product-visual svg {
-  transform: scale(1.05) rotate(3deg);
+.product-card:hover .image-slide img {
+  transform: scale(1.05);
 }
+
+
+
 
 .product-badge {
   position: absolute;
