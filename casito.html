@@ -1,81 +1,170 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bender Voice Dashboard</title>
+    <title>Bender Voice Dashboard - Neuro Print</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
-        body { font-family: 'Fira Code', monospace; }
-        .glitch { text-shadow: 0 0 10px #22c55e; }
+
+        body {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .glitch {
+            text-shadow: 0 0 10px #22c55e;
+        }
+
+        .speaking {
+            animation: pulse 1s infinite;
+            border-color: #4ade80 !important;
+            color: #4ade80 !important;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 5px rgba(34,197,94,0.5); }
+            50% { box-shadow: 0 0 25px rgba(34,197,94,0.8); }
+            100% { box-shadow: 0 0 5px rgba(34,197,94,0.5); }
+        }
     </style>
 </head>
+
 <body class="bg-black text-green-500 min-h-screen flex flex-col items-center justify-center p-4">
 
-    <div class="border-2 border-green-500 p-8 rounded-xl bg-zinc-900 shadow-[0_0_20px_rgba(34,197,94,0.3)] w-full max-w-md">
-        <h1 class="text-2xl font-bold mb-4 text-center glitch uppercase tracking-widest">Neuro Print Voice</h1>
-        
-        <div id="status-container" class="bg-black p-4 rounded border border-green-800 mb-6">
-            <p class="text-xs text-green-800 mb-1">ESTADO DEL SISTEMA:</p>
-            <p id="status" class="text-lg">ESPERANDO A BENDER...</p>
-        </div>
+<div class="border-2 border-green-500 p-8 rounded-xl bg-zinc-900 w-full max-w-md">
 
-        <button onclick="activarAudio()" id="btn-audio" class="w-full bg-green-600 text-black font-bold py-3 rounded hover:bg-green-400 transition-colors mb-4">
-            ACTIVAR VOZ
-        </button>
+    <h1 class="text-2xl font-bold mb-4 text-center glitch uppercase">
+        Neuro Print Voice
+    </h1>
 
-        <div class="text-xs text-green-700">
-            <p>IP BENDER: <span id="ip-display">Cargando...</span></p>
-            <div id="log" class="mt-4 h-32 overflow-y-auto border-t border-green-900 pt-2 space-y-1">
-                <p>> Sistema iniciado...</p>
-            </div>
+    <div id="status-container" class="bg-black p-4 rounded border border-green-800 mb-6">
+        <p class="text-xs text-green-800">ESTADO:</p>
+        <p id="status" class="text-lg text-white">ESPERANDO...</p>
+    </div>
+
+    <button onclick="activarAudio()" id="btn-audio"
+        class="w-full bg-green-600 text-black font-bold py-3 rounded mb-4">
+        ACTIVAR VOZ DE BENDER
+    </button>
+
+    <div class="text-xs text-green-700">
+        <p>IP ESP32: <span id="ip-display">192.168.18.37</span></p>
+
+        <div id="log" class="mt-4 h-32 overflow-y-auto border-t border-green-900 pt-2">
+            <p>> Sistema listo...</p>
         </div>
     </div>
 
-    <script>
-        const IP_BENDER = "192.168.18.37"; // <-- PON AQUÍ LA IP DE TU ESP32
-        document.getElementById('ip-display').innerText = IP_BENDER;
-        
-        let audioActivado = false;
+</div>
 
-        function activarAudio() {
-            audioActivado = true;
-            document.getElementById('btn-audio').classList.add('hidden');
-            hablar("Sistema de voz conectado");
-        }
+<script>
+const IP_BENDER = "192.168.18.37";
 
-        function hablar(texto) {
-            if (!audioActivado) return;
-            const voz = new SpeechSynthesisUtterance(texto);
-            voz.lang = 'es-EC'; 
-            voz.rate = 0.9; // Un poco más lento para que suene robótico
-            window.speechSynthesis.speak(voz);
-            
-            const log = document.getElementById('log');
-            const entry = document.createElement('p');
-            entry.innerText = `> ${new Date().toLocaleTimeString()}: ${texto}`;
-            log.prepend(entry);
-        }
+let audioActivado = false;
+let ultimoMensaje = "";
+let ultimoImpresion = "";
 
-        async function chequearMensajes() {
-            try {
-                const response = await fetch(`http://${IP_BENDER}/get-mensaje`);
-                const texto = await response.text();
+document.getElementById("ip-display").innerText = IP_BENDER;
 
-                if (texto && texto.trim() !== "") {
-                    document.getElementById('status').innerText = "DICIENDO: " + texto;
-                    hablar(texto);
-                } else {
-                    document.getElementById('status').innerText = "BENDER EN LÍNEA";
-                }
-            } catch (err) {
-                document.getElementById('status').innerText = "OFFLINE - REVISAR IP";
+function log(msg){
+    const el = document.createElement("p");
+    el.innerText = "> " + new Date().toLocaleTimeString() + " " + msg;
+    document.getElementById("log").prepend(el);
+}
+
+function activarAudio(){
+    audioActivado = true;
+    document.getElementById("btn-audio").style.display = "none";
+    document.getElementById("status").innerText = "BENDER EN LÍNEA";
+    hablar("Sistema activado.");
+}
+
+// VOZ BENDER
+function hablar(texto){
+    window.speechSynthesis.cancel();
+
+    const msg = new SpeechSynthesisUtterance(texto);
+    msg.lang = "es-EC";
+    msg.pitch = 0.4;
+    msg.rate = 0.85;
+
+    const box = document.getElementById("status-container");
+    box.classList.add("speaking");
+
+    msg.onend = () => box.classList.remove("speaking");
+
+    window.speechSynthesis.speak(msg);
+}
+
+// ===============================
+// LECTOR PRINCIPAL ESP32
+// ===============================
+async function leerESP32(){
+
+    if(!audioActivado) return;
+
+    try {
+        const res = await fetch(`http://${IP_BENDER}/get-mensaje`);
+        const texto = (await res.text()).trim();
+
+        if(texto === "" || texto === ultimoMensaje) return;
+
+        ultimoMensaje = texto;
+        log("MSG: " + texto);
+
+        const low = texto.toLowerCase();
+
+        // =========================
+        // IMPRESORA INTELIGENTE
+        // =========================
+        if(low.includes("print") || low.includes("%")){
+
+            let porcentaje = texto.match(/\d+/);
+            porcentaje = porcentaje ? porcentaje[0] : "0";
+
+            if(porcentaje !== ultimoImpresion){
+                ultimoImpresion = porcentaje;
+
+                hablar(`Creador, su pieza está al ${porcentaje} por ciento`);
             }
+
         }
 
-        // Consultar cada 1.5 segundos
-        setInterval(chequearMensajes, 1500);
-    </script>
+        // =========================
+        // TEMPERATURA
+        // =========================
+        else if(low.includes("temperatura")){
+            let val = texto.match(/\d+(\.\d+)?/);
+            val = val ? val[0] : "desconocida";
+            hablar(`La temperatura es de ${val} grados`);
+        }
+
+        // =========================
+        // HORA
+        // =========================
+        else if(texto.match(/\d{1,2}:\d{2}/)){
+            hablar(`Son las ${texto}`);
+        }
+
+        // =========================
+        // MENSAJES GENERALES
+        // =========================
+        else {
+            hablar(texto);
+        }
+
+    } catch(e){
+        document.getElementById("status").innerText = "ESP32 OFFLINE";
+    }
+}
+
+// cada 1.2 segundos
+setInterval(leerESP32, 1200);
+
+</script>
+
 </body>
 </html>
